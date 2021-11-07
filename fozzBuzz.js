@@ -17,3 +17,6 @@ const fizzBuzz =(n) => {
         
     }
 }
+function isPalindrome(x) {
+    // your code here
+  }
