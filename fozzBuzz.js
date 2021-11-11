@@ -17,6 +17,7 @@ const fizzBuzz =(n) => {
         
     }
 }
-function isPalindrome(x) {
-    // your code here
-  }
+function highestRank(arr){
+  let count=0;
+  arr.filter((item,i,array)=>array.filter(ele=>ele===item).length)
+    }
