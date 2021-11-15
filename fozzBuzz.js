@@ -17,7 +17,3 @@ const fizzBuzz =(n) => {
         
     }
 }
-function highestRank(arr){
-  let count=0;
-  arr.filter((item,i,array)=>array.filter(ele=>ele===item).length)
-    }
