@@ -121,12 +121,11 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-
-let arr2 = arr.sort(function (a, b) {
-  return a.price - b.price;
-});
-return arr2;
- };
+  let arr2 = arr.sort(function (a, b) {
+    return a.price - b.price;
+  });
+  return arr2;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -163,8 +162,8 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   let arr2 = arr.sort(function (a, b) {
-    a=a.toString();
-    b=b.toString();
+    a = a.toString();
+    b = b.toString();
     return Number(a.length - b.length);
   });
   return arr2;
@@ -189,12 +188,16 @@ const people = [
 ];
 
 const sortPeople = (arr) => {
-  let arr2 = arr.sort(function (a, b) {
-    // a.lastName=a.lastName.toLowerCase();
-    // b.lastName=b.lastName.toLowerCase();
-    return (a.lastName - b.lastName);
-  });
-  return arr2;
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j < arr.length; j++) {
+      if (arr[i].lastName > arr[j].lastName) {
+        let x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
+      }
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -208,7 +211,29 @@ If two people have the same full name, the younger one should come first. Do not
 ------------------------------------------------------------------------------------------------ */
 
 const sortPeopleBetter = (arr) => {
-  // Solution code here...
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i; j < arr.length; j++) {
+      if (arr[i].lastName > arr[j].lastName) {
+        let x = arr[i];
+        arr[i] = arr[j];
+        arr[j] = x;
+      } else if (arr[i].lastName === arr[j].lastName) {
+        if (arr[i].firstName > arr[j].firstName) {
+          let x = arr[i];
+          arr[i] = arr[j];
+          arr[j] = x;
+        }else if(arr[i].firstName === arr[j].firstName)
+        {
+          if (arr[i].age > arr[j].age) {
+            let x = arr[i];
+            arr[i] = arr[j];
+            arr[j] = x;
+        }
+      }
+    }
+  }
+}
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
