@@ -22,11 +22,10 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  let arr2=[];
-  arr.forEach(item=>{
+  let arr2 = [];
+  arr.forEach((item) => {
     arr2.push(callback(item));
-
-  })
+  });
   return arr2;
 };
 
@@ -39,17 +38,16 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  let capital=[];
-  let small=[];
-  arr.forEach(item=>{
-    if(item[0]===item[0].toUpperCase())
-    {
-      capital.push(item)
-    }else{
-      small.push(item)
+  let capital = [];
+  let small = [];
+  arr.forEach((item) => {
+    if (item[0] === item[0].toUpperCase()) {
+      capital.push(item);
+    } else {
+      small.push(item);
     }
-  })
-  let arr2=[...capital,...small];
+  });
+  let arr2 = [...capital, ...small];
   return arr2;
 };
 
@@ -62,7 +60,7 @@ HINT: Beware... JS default is "Lexical" ordering.
 ------------------------------------------------------------------------------------------------ */
 
 const sortNumbers = (arr) => {
-  let arr2=arr.sort(function(a, b) {
+  let arr2 = arr.sort(function (a, b) {
     return a - b;
   });
   return arr2;
@@ -77,7 +75,7 @@ HINT: Do it with a custom sort callback, not with using `.reverse()`. ;)
 ------------------------------------------------------------------------------------------------ */
 
 const sortBackwards = (arr) => {
-  let arr2=arr.sort(function(a, b) {
+  let arr2 = arr.sort(function (a, b) {
     return b - a;
   });
   return arr2;
@@ -94,19 +92,18 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetize = (arr) => {
-  let capital=[];
-  let small=[];
-  arr.forEach(item=>{
-    if(item[0]===item[0].toUpperCase())
-    {
-      capital.push(item)
-    }else{
-      small.push(item)
+  let capital = [];
+  let small = [];
+  arr.forEach((item) => {
+    if (item[0] === item[0].toUpperCase()) {
+      capital.push(item);
+    } else {
+      small.push(item);
     }
-  })
-  let csort=capital.sort();
-  let ssort=small.sort();
-  let arr2=[...csort,...ssort];
+  });
+  let csort = capital.sort();
+  let ssort = small.sort();
+  let arr2 = [...csort, ...ssort];
   return arr2;
 };
 
@@ -124,16 +121,12 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
- let price=[];
- let arr2=[];
- arr.forEach(item=>{
-   price.push(item.price);
- })
- let pricesort=price.sort(function(a, b) {
-  return a - b;
+
+let arr2 = arr.sort(function (a, b) {
+  return a.price - b.price;
 });
- 
-};
+return arr2;
+ };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
