@@ -44,7 +44,17 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  // Solution code here...
+  
+  if(typeof input==="number"){
+    return true;
+  }else{
+    let output=input.search(/[0-9]/);
+  if(output===-1)
+  {
+    return false;
+  }else{
+    return true;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
