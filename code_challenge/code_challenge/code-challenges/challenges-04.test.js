@@ -7,10 +7,9 @@ Write a function called addTwo that takes in an array and adds two to every valu
 ------------------------------------------------------------------------------------------------ */
 
 const addTwo = (arr) => {
-  let arr2=[];
-  for(let i=0;i<arr.length;i++)
-  {
-    arr2.push(arr[i]+2);
+  let arr2 = [];
+  for (let i = 0; i < arr.length; i++) {
+    arr2.push(arr[i] + 2);
   }
   return arr2;
 };
@@ -23,10 +22,9 @@ Write a function named containsW that takes in a string. This function should us
 ------------------------------------------------------------------------------------------------ */
 
 const containsW = (str) => {
-  if(str.includes("w"))
-  {
+  if (str.includes("w")) {
     return true;
-  }else {
+  } else {
     return false;
   }
 };
@@ -44,16 +42,15 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const isNum = (input) => {
-  
-  if(typeof input==="number"){
+  if (typeof input === "number") {
     return true;
-  }else{
-    let output=input.search(/[0-9]/);
-  if(output===-1)
-  {
-    return false;
-  }else{
-    return true;
+  } else {
+    let output = input.search(/[0-9]/);
+    if (output === -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 };
 
@@ -65,7 +62,11 @@ Write a function named containsWorld that takes in a string or number of any len
 ------------------------------------------------------------------------------------------------ */
 
 const containsWorld = (input) => {
-  // Solution code here...
+  if (typeof input == "string" && input.includes("world")) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -77,7 +78,13 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
+  let str2 = [];
+  for (let i = 0; i < str.length; i++) {
+    if (str[i][i].toUpperCase() === str[i][i]) {
+      str2.push(str[i]);
+    }
+  }
+  return str2;
 };
 
 /* ------------------------------------------------------------------------------------------------
