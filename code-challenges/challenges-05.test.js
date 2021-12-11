@@ -85,7 +85,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 ------------------------------------------------------------------------------------------------ */
 
 const wordsToCharList = (arr) => {
-  // Solution code here...
+ let arr2=arr.split("");
+ return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,7 +131,14 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+ recipe.ingredients.forEach(element => {
+   let x=element.indexOf(" ");
+   let first=element.slice(x+1);
+   x=first.indexOf(" ");
+   let second=first.slice(x+1);
+   result.push(second);
+ });
+ return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -143,7 +151,15 @@ You may also use other string or array methods.
 
 const splitFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.ingredients.forEach(element => {
+   let x=element.split(" ");
+   x.shift();
+   x.shift();
+   let y=x.join(" ");
+   result.push(y);
+
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -158,7 +174,12 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  recipe.steps.forEach(element => {
+    let x=element.indexOf(" ");
+    let first=element.slice(0,x);
+    result.push(first);
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -175,7 +196,14 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+ 
+ for(let i=0;i<arr.length;i++){
+    if(arr[i]%2===0){
+      arr.splice(i,1);
+      --i;
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -194,7 +222,15 @@ removeLastCharacters('Gregor', 9) returns ''
 ------------------------------------------------------------------------------------------------ */
 
 const removeLastCharacters = (str, numberOfCharacters) => {
-  // Solution code here...
+  let str2;
+  if(numberOfCharacters<0){
+    return str;
+  }else if(numberOfCharacters>str.length){
+    return "";
+  }else{
+    str2=str.slice(0,(str.length-numberOfCharacters));
+  }
+  return str2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -205,7 +241,12 @@ Write a function named totalSumCSV that, given a string of comma-separated value
 
 const totalSumCSV = (str) => {
   let total = 0;
-  // Solution code here...
+  let arr=str.split(",");
+  arr.forEach(item=>{
+    let num=Number(item);
+    total+=num;
+  })
+  return total;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -217,7 +258,13 @@ For example, removeVowels('gregor') returns 'grgr'.
 ------------------------------------------------------------------------------------------------ */
 
 const removeVowels = (str) => {
-  // Solution code here...
+  let str2="";
+  for(let i=0;i<str.length;i++){
+    if(str[i]!="a"&&str[i]!="e"&&str[i]!="o"&&str[i]!="u"&&str[i]!="i"){
+      str2+=str[i];
+    }
+  }
+  return str2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -231,7 +278,17 @@ Similarly, extractVowels('The quick brown fox') returns ['Th qck brwn fx', 'eioo
 ------------------------------------------------------------------------------------------------ */
 
 const extractVowels = (str) => {
-  // Solution code here...
+  let vow="";
+  let orig="";
+  for(let i=0;i<str.length;i++){
+    if(str[i]!="a"&&str[i]!="e"&&str[i]!="o"&&str[i]!="u"&&str[i]!="i"){
+      orig+=str[i];
+    }else{
+      vow+=str[i];
+    }
+  }
+  let arr=[orig,vow]
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
