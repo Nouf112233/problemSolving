@@ -78,13 +78,8 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  let str2 = [];
-  for (let i = 0; i < str.length; i++) {
-    if (str[i][i].toUpperCase() === str[i][i]) {
-      str2.push(str[i]);
-    }
-  }
-  return str2;
+let arr=str.match(/(\b[A-Z][a-z]+|\b[A-Z]\b)/g);
+return arr
 };
 
 /* ------------------------------------------------------------------------------------------------
