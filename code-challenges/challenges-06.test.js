@@ -55,8 +55,23 @@ let characters = [
 ];
 
 const sortByChildren = (charArray) => {
-	// Solution code here...
-};
+	for (let i = 0; i < charArray.length; i++) {
+		for (let j = i; j < charArray.length; j++) {
+		  if (charArray[i].children.length > charArray[j].children.length) {
+			let x = charArray[i];
+			charArray[i] = charArray[j];
+			charArray[j] = x;
+		  }else if(charArray[i].children.length === charArray[j].children.length){
+            if(charArray[i].name > charArray[j].name){
+                let x = charArray[i];
+			charArray[i] = charArray[j];
+			charArray[j] = x;
+			}
+		  }
+		}
+	  }
+	  return charArray;
+	}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -80,7 +95,12 @@ const courseInfo = {
 };
 
 const getCourseKeys = (obj) => {
-	// Solution code here...
+	let arr=[];
+	for(let key in obj){
+		arr.push(key);
+
+	}
+	return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +112,12 @@ Write a function named checkValues that takes in an object and a value and retur
 ------------------------------------------------------------------------------------------------ */
 
 const checkValues = (obj, value) => {
-	// Solution code here...
+	for(let key in obj){
+		if(obj[key]==value){
+			return true;
+		}
+	}
+	 return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -115,8 +140,13 @@ HR has asked you to change the data to make it easier to print so that it looks 
 ------------------------------------------------------------------------------------------------ */
 
 const updateNumbers = (obj) => {
-	// Solution code here...
-};
+	let arr=[];
+	for(let key in obj){
+		let x=`${key}: ${obj[key]}`
+		arr.push(x);
+	}
+	return arr;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -126,7 +156,10 @@ Write a function named getHouses that returns a new array containing the names o
 
 const getHouses = (arr) => {
 	let houses = [];
-	// Solution code here...
+	arr.forEach(item=>{
+		houses.push(item.name);
+	})
+	return houses;
 };
 
 /*------------------------------------------------------------------------------------------------
