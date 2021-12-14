@@ -92,9 +92,17 @@ const divisibleByFiveTwoToThePower = (input) => {
   {
     for(let y=0;y<input[i].length;y++)
     {
-      
+      if(input[i][y]%5==0)
+      {
+        let m=input[i][y];
+        input[i][y]=Math.pow(2,m);
+        
+      }else{
+        input[i].splice(y,1);
+      }
     }
   }
+  return input;
 }
 
 /* ------------------------------------------------------------------------------------------------
