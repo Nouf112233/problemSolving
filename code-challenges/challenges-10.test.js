@@ -23,7 +23,10 @@ Returns: ['dyoll', 'eimaj'];
 ------------------------------------------------------------------------------------------------ */
 
 const getNames = (arr) => {
-  // Solution code here...
+  const arr2=arr.map(item=>{
+    return item.name.split("").reverse().join("")
+  })
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,7 +40,17 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 ------------------------------------------------------------------------------------------------ */
 
 const count = (target, input) => {
-  // Solution code here...
+  const out=input.reduce((acc,arr)=>{
+    acc+=arr.reduce((accc,item)=>{
+         if(item===target)
+         {
+           accc+=1;
+         }
+         return accc;
+    },0)
+    return acc;
+  },0)
+  return out;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -51,7 +64,15 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 ------------------------------------------------------------------------------------------------ */
 
 const totalSum = (input) => {
-  // Solution code here...
+  const out=input.reduce((acc,arr)=>{
+    acc+=arr.reduce((accc,item)=>{
+         
+           accc+=item;
+         return accc;
+    },0)
+    return acc;
+  },0)
+  return out;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,8 +88,14 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 ------------------------------------------------------------------------------------------------ */
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
-};
+  for(let i=0;i<input.length;i++)
+  {
+    for(let y=0;y<input[i].length;y++)
+    {
+      
+    }
+  }
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 
