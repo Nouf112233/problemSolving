@@ -9,7 +9,8 @@ using the 'reduce' method.
 E.g. [4,2,7,5,9,2] -> 9
 ------------------------------------------------------------------------------------------------ */
 const maxInArray = (arr) => {
-  // Solution code here...
+ const m=Math.max(...arr);
+ return m;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -27,7 +28,16 @@ For example:
 return: 23
 ------------------------------------------------------------------------------------------------ */
 const findMax = (matrix) => {
-  // Solution code here...
+  let m=0;
+  for(let i=0;i<matrix.length;i++)
+  {
+    const ma=Math.max(...matrix[i]);
+    if(ma>m)
+    {
+      m=ma;
+    }
+  }
+  return m;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +55,15 @@ For example:
 return: 35
 ------------------------------------------------------------------------------------------------ */
 const totalSum = (matrix) => {
-  // Solution code here...
+let sum=0;
+for(let i=0;i<matrix.length;i++)
+{
+  for(let y=0;y<matrix[i].length;y++)
+  {
+    sum+=matrix[i][y];
+  }
+}
+return sum;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -84,7 +102,13 @@ const alkiBeach = [33, 31, 147, 130, 27, 93, 38, 126, 141, 63, 46, 17];
 const cookieStores = [firstPike, seaTac, seattleCenter, capHill, alkiBeach];
 
 const grandTotal = (stores) => {
-  // Solution code here...
+  let arr=[]
+  for(let i=0;i<hoursOpen.length;i++)
+  {
+    let x=firstPike[i]+seaTac[i]+seattleCenter[i]+capHill[i]+alkiBeach[i];
+    arr.push(x);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -98,7 +122,15 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  // Solution code here...
+
+  let arr=[];
+  hoursOpen.forEach((item,i)=>{
+    let x=firstPike[i]+seaTac[i]+seattleCenter[i]+capHill[i]+alkiBeach[i];
+     let obj={sales:`${x} cookies`,time: item} ;
+     arr.push(obj);
+    
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -135,7 +167,18 @@ const errands = [
 ];
 
 const howManyTreats = (arr) => {
-  // Solution code here...
+  let max=0;
+  for(let i=0;i<arr.length;i++)
+    {
+      for(let y=0;y<arr[i].items;y++)
+      {
+         if(arr[i].items[y].quantity>max)
+         {
+           max=arr[i].items[y].quantity;
+         }
+      }
+    }
+    return max;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -157,7 +200,24 @@ The top row of the board is considered row zero and row numbers increase as they
 ------------------------------------------------------------------------------------------------ */
 
 const battleship = (board, row, col) => {
-  //  Solution code here...
+  for(let i=0;i<board.length;i++)
+  {
+    if(row===i)
+    {
+    for(let y=0;y<board[i].length;y++)
+    {
+      if(col===y)
+      {
+        if(board[i][y]==="#")
+        {
+          return "hit";
+        }else if(board[i][y]===" "){
+          return "miss";
+        }
+      }
+    }
+  }
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------

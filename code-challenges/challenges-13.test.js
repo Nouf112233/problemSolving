@@ -198,7 +198,56 @@ const daysOfWeek = [
 ];
 
 const sortByDay = (arr) => {
-  // Solution code here...
+  let arr2=[];
+  let mon=[];
+  let tues=[];
+  let wedn=[];
+  let thur=[];
+  let fri=[];
+  let sat=[];
+  let sun=[];
+  for(let i =0;i<arr.length;i++)
+  {
+    if(arr[i].includes("Monday"))
+    {
+      mon.push(arr[i])
+    }
+    if(arr[i].includes("Tuesday"))
+    {
+      tues.push(arr[i])
+    }
+    if(arr[i].includes("Wednesday"))
+    {
+      wedn.push(arr[i])
+    }
+    if(arr[i].includes("Thursday"))
+    {
+      thur.push(arr[i])
+    }
+    if(arr[i].includes("Friday"))
+    {
+      fri.push(arr[i])
+    }
+    if(arr[i].includes("Saturday"))
+    {
+      sat.push(arr[i])
+    }
+    if(arr[i].includes("Sunday"))
+    {
+      sun.push(arr[i])
+    }
+    
+
+    
+  }
+  arr2.push(mon);
+    arr2.push(tues);
+    arr2.push(wedn);
+    arr2.push(thur);
+    arr2.push(fri);
+    arr2.push(sat);
+    arr2.push(sun);
+    return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -210,7 +259,12 @@ For example, ['abcd', 'efgh', 'ijkl', 'mnop'] returns ['a', 'f', 'k', 'p']
 ------------------------------------------------------------------------------------------------ */
 
 const characterByIndex = (arr) => {
-  // Solution code here...
+  const arr2=[];
+  for(let i=0;i<arr.length;i++)
+  {
+    arr2.push(arr[i][i]);
+  }
+  return arr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
