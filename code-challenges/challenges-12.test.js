@@ -229,8 +229,16 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 ------------------------------------------------------------------------------------------------ */
 
 const calculateProduct = (numbers) => {
-  // Solution code here...
-};
+  let  m=1;
+  for(let i=0;i<numbers.length;i++)
+  {
+      for(let y=0;y<numbers[i].length;y++)
+      {
+        m*=numbers[i][y];
+      }
+  }
+  return m;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -249,8 +257,19 @@ const weeklyTemperatures = [
 ];
 
 const averageDailyTemperature = (weather) => {
-  // Solution code here...
-};
+  let count=0;
+  let sum=0;
+ for(let i=0;i<weather.length;i++)
+ {
+   for(let y=0;y<weather[i].length;y++)
+   {
+     sum+=weather[i][y];
+     count++
+   }
+ }
+  let av=sum/count;
+  return av;
+}
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
@@ -270,7 +289,25 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let arrAv=[];
+  
+ for(let i=0;i<weather.length;i++)
+ {
+ let count=0;
+  let sum=0;
+ 
+   for(let y=0;y<weather[i].length;y++)
+   {
+     sum+=weather[i][y];
+     count++
+   }
+   let av=sum/count;
+   arrAv.push(av);
+  
+ }
+ let minAv=Math.min(...arrAv);
+ return minAv;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -286,7 +323,23 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
 const excel = (str) => {
-  // Solution code here...
+  let sum=0;
+  let arr2=[];
+
+for(let i=0;i<str.length;i++)
+{
+  if((str[i]!=",")&&(str[i]!="\n"))
+  {
+    sum+=str[i];
+  }else if(str[i]==="\n")
+  {
+    arr2.push(sum);
+    sum=0;
+  }
+}
+arr2.push(sum);
+return arr2;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
