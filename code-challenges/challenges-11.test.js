@@ -12,11 +12,13 @@ Note the space in between first and last names.
 You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
+ 
   const arr=people.map(item=>{
-    arr=0;
-    return people; 
+
+    return `${item.firstName} ${item.lastName}`
 
   })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -28,7 +30,9 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePin = (pin) => {
-  // Solution code here...
+  let x=/\b\d{4}\b/g.test(pin);
+  return x;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -40,7 +44,9 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  // Solution code here...
+  let x=/^[A-Z]{1,10}$/.test(word);
+  return x;
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -72,7 +78,8 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
-  // Solution code here...
+  let x=(email.match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{3}$/))||(email.match( /\w+([-+.']\w+)*@\w+([-.]\w+)*\.[a-zA-Z]{3}$/));
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,7 +104,8 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let x=(phoneNumber.test(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/))||(phoneNumber.test( /^\(?([0-9]{3})\)?[-. ]?([0-9]{7})$/))||(phoneNumber.test( /^\(?([0-9]{6})\)?[-. ]?([0-9]{4})$/))||(phoneNumber.test( /^\(?([0-9]{10})\)$/));
+  return x;
 };
 
 /* ------------------------------------------------------------------------------------------------

@@ -330,7 +330,7 @@ for(let i=0;i<str.length;i++)
 {
   if((str[i]!=",")&&(str[i]!="\n"))
   {
-    sum+=str[i];
+    sum+=Number(str[i]);
   }else if(str[i]==="\n")
   {
     arr2.push(sum);

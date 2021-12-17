@@ -136,7 +136,9 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  // Solution code here...
+  return arr.sort((a, b) => {
+    return a.toUpperCase().localeCompare(b.toUpperCase());
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -292,41 +294,15 @@ You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i; j < arr.length; j++) {
-      if (arr[i].start > arr[j].start) {
-        let x = arr[i];
-        arr[i] = arr[j];
-        arr[j] = x;
-      // } else if (
-      //   arr[i].start === arr[j].start &&
-      //   arr[i].dayOfWeek !== arr[j].dayOfWeek &&
-      //   (arr[j].dayOfWeek === "Monday" ||
-      //     (arr[i].dayOfWeek !== "Monday" && arr[j].dayOfWeek === "Tuesday") ||
-      //     (arr[i].dayOfWeek !== "Monday" &&
-      //       arr[i].dayOfWeek !== "Tuesday" &&
-      //       arr[j].dayOfWeek === "Wednesday") ||
-      //     (arr[i].dayOfWeek !== "Monday" &&
-      //       arr[i].dayOfWeek !== "Tuesday" &&
-      //       arr[i].dayOfWeek !== "Wednesday" &&
-      //       arr[j].dayOfWeek === "Thursday"))
-      // ) {
-      //   let x = arr[i];
-      //   arr[i] = arr[j];
-      //   arr[j] = x;
-      } else if (
-        arr[i].start === arr[j].start &&
-        arr[i].dayOfWeek === arr[j].dayOfWeek
-      ) {
-        if (arr[i].end > arr[j].end ) {
-          let x = arr[i];
-          arr[i] = arr[j];
-          arr[j] = x;
-        }
+  return sortMeetingsByDay(arr).sort((a, b) => {
+    if (a.dayOfWeek == b.dayOfWeek) {
+      if (a.start == b.start) {
+        return (a.end - a.start) - (b.end - b.start);
       }
+      return a.start - b.start;
     }
-  }
-  return arr;
+    return 0;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
