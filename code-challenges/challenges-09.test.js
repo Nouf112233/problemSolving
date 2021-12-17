@@ -326,14 +326,17 @@ Write a function named extractChildren that, given the array of characters from 
 ------------------------------------------------------------------------------------------------ */
 
 const extractChildren = (arr) => {
-  const arr2=arr.filter(item=>{
-    return item.name.includes("a");
-  })
-  const child=arr2.map(array=>array.reduce((acc,x)=>{
-    acc.push(x.children)
-    return acc;
-  },[]))
-  return child;
+  const newArr = arr.filter((ele) => {
+    return ele.name.indexOf("a") > -1;
+  });
+  const newArr2 = [];
+  newArr.reduce((acc, curr) => {
+    if (curr.children) {
+      console.log(curr);
+      curr.children.map((ele) => newArr2.push(ele));
+    }
+  }, "");
+  return newArr2;
 };
 
 /* ------------------------------------------------------------------------------------------------

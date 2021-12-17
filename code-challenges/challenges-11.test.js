@@ -44,8 +44,7 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 ------------------------------------------------------------------------------------------------ */
 
 const validateWord = (word) => {
-  let x=/^[A-Z]{1,10}$/.test(word);
-  return x;
+  return /^[A-Za-z]{5,10}$/.test(word);
 
 };
 
@@ -58,7 +57,7 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  return /[A-Za-z](\d+)/.test(string);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,7 +117,17 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 ------------------------------------------------------------------------------------------------ */
 
 const findTagNames = (elements) => {
-  // Solution code here...
+  let newArr = [];
+  newArr = elements.map((ele) => {
+    return ele.match(/<\/[^>]*>/gm);
+  });
+  let newArr2 = [];
+  newArr.map((ele) => {
+    ele.map((elem) => {
+      newArr2.push(elem.slice(1, elem.length - 1));
+    });
+  });
+  return newArr2;
 };
 
 /* ------------------------------------------------------------------------------------------------
